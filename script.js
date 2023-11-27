@@ -48,6 +48,93 @@ const yearsLived = inventors.reduce((total, inv) => {
 }, 0);
 
 console.log(yearsLived);
+
+/////////////////////////////////////////////////////////
+const people = [
+    'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry',
+    'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul',
+    'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David',
+    'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana',
+    'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar',
+    'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric',
+    'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell',
+    'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph',
+    'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank',
+    'Birrell, Augustine', 'Black, Elk', 'Blair, Robert', 'Blair, Tony',
+    'Blake, William'
+  ];
+  
+  // Array.prototype.map()
+  // 6. Map the people array such that the new array consists of strings with the names formatted as "First Last", e.g., "Becker, Carl" should be mapped to "Carl Becker".
+  // Hint: As a start, consider using the String.prototype.split method to "split" the string using ', ' as the separator
+  
+  const namesFormitted = people.map(name => {
+    const [last, first] = name.split(', ');
+    return `${first} ${last}`;
+  });
+
+  console.log(namesFormitted)
+
+  //////////////////////////////////////////////
+
+  const data = [
+    'car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van',
+    'bike', 'walk', 'car', 'van', 'car', 'truck'
+  ];
+  
+  // Array.prototype.reduce()
+  // 7. Count the number of instances for each of the data items. The reduce should return an object where the keys are 'car', 'truck', etc. and the values are the count.
+  // Hint: Since you want to return an object, be sure to pass an empty {} for the initial value of the "accumulator".
+  
+  const numberOfInstances = data.reduce((acc, item) => {
+    acc[item] =(acc[item] || 0) + 1;
+    return acc;
+  }, {});
+  console.log(numberOfInstances);
+
+  //////////////////////////////////////////////
+
+  const devs = [
+    { name: 'Wes', year: 1988 },
+    { name: 'Kait', year: 1986 },
+    { name: 'Irv', year: 1970 },
+    { name: 'Lux', year: 2015 }
+  ];
+  
+  // Array.prototype.some()
+  // 8. Check if at least one person is 19 or older?
+  // Hint: To get today's year, use the getFullYear method of new Date(), i.e., new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
+  const lastPersonIsNinteenOrOlder = devs.some(dev => currentYear -  dev.year >= 19);
+  console.log(lastPersonIsNinteenOrOlder);
+  
+  // Array.prototype.every()
+  // 9. Check if everyone is 19 or older?
+
+  const EveryoneISNineteenOrOlder = devs.every(dev => currentYear.year - dev.year >= 19);
+  console.log(EveryoneISNineteenOrOlder);
+
+  ///////////////////////////////////////////////////
+
+  const comments = [
+    { text: 'Love this!', id: 523423 },
+    { text: 'Super good', id: 823423 },
+    { text: 'You are the best', id: 2039842 },
+    { text: 'Ramen is my fav food ever', id: 123523 },
+    { text: 'Nice Nice Nice!', id: 542328 }
+  ];
+  
+  // Array.prototype.find()
+  // 10. Find the comment with the id of 823423
+  const commentId823423 = comments.find(comment => comment.id === 823423);
+  console.log(commentId823423);
+  
+  
+  // Array.prototype.findIndex()
+  // 11. Find the index of the comment with an id of 123523
+  const indexOfcommentId123523 = comments.findIndex(comment => comment.id === 123523);
+  console.log(indexOfcommentId123523);
+  
   
   
   
